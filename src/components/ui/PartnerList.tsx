@@ -16,7 +16,7 @@ function PartnerList() {
               key={`${partner.id}-${index}`}
               src={partner.logo}
               alt={partner.label}
-              className='h-8.5 md:h-10 lg:h-12 w-auto object-contain shrink-0'
+              className='h-8.5 md:h-10 lg:h-12 w-auto object-contain shrink-0 grayscale-100'
             />
           ))}
         </div>
