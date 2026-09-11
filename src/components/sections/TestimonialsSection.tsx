@@ -7,17 +7,12 @@ function TestimonialsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Fungsi untuk mendeteksi indeks berdasarkan posisi scroll
+  // Active index from scroll position
   const handleScroll = () => {
-    // 1. Ambil referensi ke elemen
     const container = scrollRef.current;
-
-    // 2. Gunakan guard untuk memastikan container tidak null
     if (!container) return;
 
     const scrollLeft = container.scrollLeft;
-
-    // 3. Sekarang TypeScript tahu bahwa 'container' pasti ada di sini
     const cardWidth = container.children[0]?.clientWidth || 594;
     const gap = 20;
 
@@ -53,7 +48,7 @@ function TestimonialsSection() {
 
       {/* Cards Section */}
       <div className='w-full shrink-0 relative overflow-hidden'>
-        {/* Blur Kiri */}
+        {/* Left blur */}
         <div className='absolute left-0 top-0 h-full w-[clamp(0px,calc(49.67vw-195.20px),520px)] z-5 bg-linear-to-r from-neutral-25 via-neutral-25/90 to-transparent dark:from-black dark:via-neutral-950/80 dark:to-transparent pointer-events-none' />
 
         {/* Container Scroll */}
@@ -72,7 +67,7 @@ function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Blur Kanan */}
+        {/* Right blur */}
         <div className='absolute right-0 top-0 h-full w-[clamp(0px,calc(49.67vw-195.20px),520px)] z-5 bg-linear-to-l from-neutral-25 via-neutral-25/90 to-transparent dark:from-black dark:via-neutral-950/80 dark:to-transparent pointer-events-none' />
       </div>
 

@@ -5,10 +5,10 @@ import type { LogoProps } from '../../types';
 const LogoIcon = () => {
   return (
     <picture>
-      {/* Jika layar md ke atas (>= 768px), gunakan logoIconLarge */}
+      {/* Desktop logo */}
       <source media='(min-width: 768px)' srcSet={logoIconLarge} />
 
-      {/* Gambar default untuk layar mobile */}
+      {/* Mobile logo */}
       <img
         src={logoIconSmall}
         alt='Logo image'

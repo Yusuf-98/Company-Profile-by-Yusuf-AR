@@ -1,41 +1,9 @@
 import React from 'react';
-/**
- * Type Definitions
- *
- * File ini berisi semua TypeScript interfaces dan types yang digunakan
- * di berbagai tempat dalam aplikasi.
- *
- * Best Practices:
- * - Gunakan PascalCase untuk interface names
- * - Export semua interfaces agar bisa digunakan di file lain
- * - Group related interfaces bersama
- * - Add comments untuk explain complex types
- */
 
 // ==========================================
 // UI Component Types
 // ==========================================
 
-/**
- * Button variant types
- * Gunakan ini untuk Button component
- */
-
-/**
- * Example: Button Props
- * Uncomment dan sesuaikan dengan kebutuhan
- */
-// export interface ButtonProps {
-//   variant?: ButtonVariant;
-//   children: React.ReactNode;
-//   onClick?: () => void;
-//   className?: string;
-//   disabled?: boolean;
-// }
-
-/**
- * Button types
- */
 export type ButtonSize = 'sm' | 'md';
 export type ButtonBg = 'orange' | 'white';
 
@@ -53,18 +21,12 @@ export interface ButtonProps {
 // Home Types
 // ==========================================
 
-/**
- * Navigation menu types
- */
 export interface NavItem {
   label: string;
   href: string;
   external?: boolean;
 }
 
-/**
- * Logo types
- */
 export interface LogoProps {
   title: string;
   description?: string;
@@ -72,9 +34,6 @@ export interface LogoProps {
   onClick?: () => void;
 }
 
-/**
- * Hero types
- */
 export interface HeroProps {
   title: string;
   titleSpan: string;
@@ -83,12 +42,9 @@ export interface HeroProps {
 }
 
 // ==========================================
-// About section Types
+// About Section Types
 // ==========================================
 
-/**
- * Partner types
- */
 export interface PartnerItem {
   id: number;
   label: string;
@@ -101,9 +57,6 @@ export interface Partners {
   className?: '';
 }
 
-/**
- * Stat Items types
- */
 export interface StatProps {
   id: number;
   value: string;
@@ -116,9 +69,6 @@ export interface StatData {
   list: StatProps[];
 }
 
-/**
- * Process step types
- */
 export interface ProcessHeader {
   title: string;
   description: string;
@@ -143,9 +93,6 @@ export interface StepCardProps {
 // Service Section Types
 // ==========================================
 
-/**
- * Services types
- */
 export interface ServiceCardProps {
   id: number;
   title: string;
@@ -159,9 +106,6 @@ export interface ServiceCardData {
   list: ServiceCardProps[];
 }
 
-/**
- * Industry types
- */
 export interface IndustryProps {
   id: number;
   label?: string;
@@ -180,9 +124,6 @@ export interface IndustryData {
 // Portfolio Section Types
 // ==========================================
 
-/**
- * Portfolio types
- */
 export interface PortfolioProps {
   id: number;
   category: string;
@@ -201,9 +142,6 @@ export interface PortfolioData {
 // Testimonial Section Types
 // ==========================================
 
-/**
- * Testimonial types
- */
 export interface Testimonial {
   id: number;
   name: string;
@@ -224,9 +162,6 @@ export interface TestimonialData {
 // FAQ Section Types
 // ==========================================
 
-/**
- * FAQ types
- */
 export interface ConsultationProps {
   title: string;
   subtitle: string;
@@ -255,9 +190,6 @@ export interface FAQHeader {
 // Contact Section Types
 // ==========================================
 
-/**
- * Contact form types
- */
 export interface ServiceOption {
   id: string;
   label: string;
@@ -288,9 +220,6 @@ export interface ContactFormErrors {
   services?: string;
 }
 
-/**
- * Input field types
- */
 export type InputFieldType = 'text' | 'email' | 'textarea';
 
 export interface InputFieldProps {
@@ -306,9 +235,6 @@ export interface InputFieldProps {
   onBlur: () => void;
 }
 
-/**
- * Service checkbox types
- */
 export interface CheckboxProps {
   label: string;
   service: ServiceOption;
@@ -329,9 +255,6 @@ export interface CheckboxServicesProps {
 // Popup Types
 // ==========================================
 
-/**
- * Success popup types
- */
 export interface SuccessPopupProps {
   data: SuccessPopup;
   isOpen: boolean;
@@ -344,9 +267,6 @@ export interface SuccessPopup {
   buttonLabel: string;
 }
 
-/**
- * Failed popup types
- */
 export interface FailedPopupProps {
   data: FailedPopup;
   isOpen: boolean;
@@ -363,9 +283,6 @@ export interface FailedPopup {
 // Footer Types
 // ==========================================
 
-/**
- * Footer types
- */
 export interface FooterNavItem {
   label: string;
   href: string;
@@ -398,13 +315,10 @@ export interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
 }
-// ==========================================
-// TODO: Add more types as needed!
-// ==========================================
 
-/**
- * Pagination Type
- */
+// ==========================================
+// Pagination Types
+// ==========================================
 
 export interface PaginationProps {
   total: number;
@@ -412,50 +326,3 @@ export interface PaginationProps {
   onClick: (index: number) => void;
   className: string;
 }
-
-// ==========================================
-// Section Data Types
-// ==========================================
-
-/**
- * TODO: Define interfaces untuk data yang digunakan di sections
- *
- * Contoh:
- * - ServiceItem untuk services section
- * - TeamMember untuk team section
- * - Testimonial untuk testimonials section
- * - dll.
- */
-
-/**
- * Example: Service/Product Item
- */
-/**
- * Example: Team Member
- */
-// export interface TeamMember {
-//   id: number;
-//   name: string;
-//   position: string;
-//   bio?: string;
-//   image: string;
-//   socialLinks?: {
-//     linkedin?: string;
-//     twitter?: string;
-//     github?: string;
-//   };
-// }
-
-// ==========================================
-// Form Types (if needed)
-// ==========================================
-
-/**
- * Tips:
- * 1. Define types berdasarkan data yang kamu perlukan
- * 2. Lihat design Figma untuk understand data structure
- * 3. Make types reusable across components
- * 4. Use optional properties (?) untuk data yang tidak selalu ada
- * 5. Consider creating separate files jika types terlalu banyak
- *    Example: types/components.ts, types/data.ts, etc.
- */

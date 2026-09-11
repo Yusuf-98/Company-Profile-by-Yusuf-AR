@@ -3,7 +3,7 @@ import type { StepCardProps } from '../../types';
 import UpArrow from '../../assets/icons/chevron-up.png';
 import DownArrow from '../../assets/icons/chevron-down.png';
 
-// -- Bubble constants
+// Bubble constants
 export const BUBBLE_TOP = 18;
 export const BUBBLE_SIZE = 48;
 export const BUBBLE_CENTER = BUBBLE_TOP + BUBBLE_SIZE / 2;
@@ -17,17 +17,17 @@ export function StepCard({
 }: StepCardProps) {
   const [open, setOpen] = useState(true);
 
-  // -- Toggle card & notify parent after 1 frame
+  // Toggle handler
   const handleToggle = () => {
     setOpen((v) => !v);
     requestAnimationFrame(() => onToggle?.());
   };
 
-  // -- Mobile layout
+  // Mobile layout
   if (isMobile) {
     return (
       <div className='relative flex items-start mb-5 pl-13'>
-        {/* -- Bubble */}
+        {/* Bubble */}
         <div
           ref={bubbleRef}
           className={[
@@ -41,7 +41,7 @@ export function StepCard({
           {step.id}
         </div>
 
-        {/* -- Card */}
+        {/* Card */}
         <div
           className='flex-1 dark:bg-neutral-950 border dark:border-neutral-900 rounded-2xl p-6 cursor-pointer select-none'
           onClick={handleToggle}
@@ -66,7 +66,7 @@ export function StepCard({
     );
   }
 
-  // -- Desktop zigzag layout
+  // Desktop layout
   return (
     <div
       className={[
@@ -76,7 +76,7 @@ export function StepCard({
           : 'flex-row-reverse pl-[calc(50%+2.5rem)]',
       ].join(' ')}
     >
-      {/* -- Card */}
+      {/* Card */}
       <div
         className='flex-1 dark:bg-neutral-950 border dark:border-neutral-900 rounded-2xl p-6 cursor-pointer select-none'
         onClick={handleToggle}

@@ -14,7 +14,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
-  // Auto-close mobile menu saat layar lebih besar dari 767px
+  // Auto-close on desktop breakpoint
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 767) setIsMenuOpen(false);
@@ -23,7 +23,7 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Mencegah body scroll saat mobile menu isOpen
+  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : '';
     return () => {
@@ -110,7 +110,7 @@ const Navbar = () => {
       {/* ── Mobile Menu ── */}
       {isMenuOpen && (
         <>
-          {/* Overlay — klik untuk menutup menu */}
+          {/* Overlay */}
           <div
             className={`fixed inset-0 z-50 md:hidden ${
               isDark ? 'bg-base-black' : 'bg-base-white'

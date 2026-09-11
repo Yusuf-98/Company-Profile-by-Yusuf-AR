@@ -29,10 +29,10 @@ export default function FooterCard() {
         </div>
       </div>
 
-      {/* ── Divider ── */}
+      {/* Divider */}
       <hr className='w-full border dark:border-neutral-800 mt-6 mb-4 md:m-0' />
 
-      {/* ── Bottom row: nav (kiri) + social icons (kanan) ── */}
+      {/* Bottom row */}
       <div className='flex flex-col gap-6 md:flex-row md:justify-between items-start w-full'>
         {/* Nav links */}
         <div className='flex flex-col md:flex-row items-start gap-2 md:gap-0'>

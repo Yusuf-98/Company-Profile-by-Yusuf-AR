@@ -21,7 +21,7 @@ function HeroSection() {
             description={hero.description}
           />
         </div>
-        {/* Setting Hero Image yang membagongkan  */}
+        {/* Hero image */}
         <div className='flex justify-center h-[clamp(388px,calc(24.53vw+291.60px),480px)] md:h-[clamp(388px,calc(53.33vw-21.58px),524px)] lg:h-[clamp(530px,calc(31.97vw+202.63px),663px)] mb-11 md:mb-0'>
           <img
             src={heroImage}

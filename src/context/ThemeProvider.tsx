@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeContext } from './ThemeContext'; // Import dari file .ts tadi
+import { ThemeContext } from './ThemeContext';
 import type { Theme } from '../types';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({

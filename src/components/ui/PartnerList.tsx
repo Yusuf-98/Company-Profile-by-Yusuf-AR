@@ -8,7 +8,7 @@ function PartnerList() {
         {partnerList.title}
       </h1>
 
-      {/* Animasi Marquee wrapper */}
+      {/* Marquee wrapper */}
       <div className='w-full overflow-hidden h-32 md:h-41 lg:h-50 flex items-center mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]'>
         <div className='flex gap-12 p-10 animate-marquee whitespace-nowrap'>
           {repeatedPartners.map((partner, index) => (

@@ -14,7 +14,7 @@ const TestimonialCard = ({
 
   return (
     <div className='relative w-90.25 md:w-120 lg:w-148.5 my-9.5 group rounded-2xl cursor-pointer'>
-      {/* Border Animasinya */}
+      {/* Animated border */}
       <div
         className='absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin-border'
         style={{
@@ -23,7 +23,7 @@ const TestimonialCard = ({
         }}
       />
 
-      {/* Konten Utama */}
+      {/* Main content */}
       <div className='relative rounded-2xl bg-neutral-25 dark:bg-neutral-950 flex justify-center border-[0.5px] border-neutral-900 group-hover:border-transparent'>
         <img
           src={QuoteIcon}

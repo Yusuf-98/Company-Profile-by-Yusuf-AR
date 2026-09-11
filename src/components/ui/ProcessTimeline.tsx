@@ -13,11 +13,11 @@ export default function ProcessTimeline() {
   );
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
 
-  // -- Vertical line position state
+  // Line position state
   const [lineTop, setLineTop] = useState(0);
   const [lineHeight, setLineHeight] = useState(0);
 
-  // -- Recalculate vertical line position
+  // Recalculate line position
   const updateLine = () => {
     const tl = timelineRef.current;
     const first = firstBubbleRef.current;
@@ -34,20 +34,20 @@ export default function ProcessTimeline() {
     );
   };
 
-  // -- Detect mobile/desktop on resize
+  // Mobile breakpoint detection
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 640);
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  // -- Initial line calculation on mount
+  // Initial line calculation
   useEffect(() => {
     const id = setTimeout(updateLine, 100);
     return () => clearTimeout(id);
   }, []);
 
-  // -- Scroll handler: fill progress + active bubbles
+  // Scroll handler
   useEffect(() => {
     const TRIGGER = 0.65;
 
@@ -89,7 +89,7 @@ export default function ProcessTimeline() {
     <div
       className='w-full dark:bg-base-black min-h-screen py-10 md:py-20 px-4 md:px-10xl lg:px-11xl'
     >
-      {/* -- Header */}
+      {/* Header */}
       <div className='flex flex-col gap-3 md:gap-3.5 mb-16'>
         <h2 className='dark:text-neutral-25 text-center text-size-display-sm md:text-size-display-lg lg:text-size-display-xl font-bold'>
           {processHeader.title}
@@ -99,9 +99,9 @@ export default function ProcessTimeline() {
         </p>
       </div>
 
-      {/* -- Timeline container */}
+      {/* Timeline container */}
       <div ref={timelineRef} className='relative mx-auto'>
-        {/* -- Vertical line */}
+        {/* Vertical line */}
         <div
           style={{
             position: 'absolute',
@@ -114,16 +114,16 @@ export default function ProcessTimeline() {
             transition: 'top 0.35s ease, height 0.35s ease',
           }}
         >
-          {/* -- Line background */}
+          {/* Line background */}
           <div className='absolute inset-0 bg-neutral-200' />
-          {/* -- Line fill/progress */}
+          {/* Line progress */}
           <div
             className='absolute left-0 top-0 w-full bg-primary-200 transition-[height] duration-100 ease-linear'
             style={{ height: `${fillPct}%` }}
           />
         </div>
 
-        {/* -- Step cards */}
+        {/* Step cards */}
         {steps.map((step, i) => {
           const isFirst = i === 0;
           const isLast = i === steps.length - 1;
