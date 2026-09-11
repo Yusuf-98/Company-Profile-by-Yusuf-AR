@@ -27,18 +27,19 @@ const Logo = ({
   return (
     <div
       role='img'
-      aria-label={description ?? title}
-      className=' inline-flex items-center min-w-35.25 md:min-w-40 h-8 gap-2 md:h-9 md:gap-2.5'
+      aria-label={description ? `${title} - ${description}` : title}
+      className='inline-flex items-center min-w-35.25 md:min-w-40 gap-2 md:gap-2.5'
     >
       <LogoIcon />
-      <a
-        href='#'
-        onClick={onClick}
-        className={
-          'font-logo font-semibold no-underline dark:text-white text-size-xl md:text-size-display-xs'
-        }
-      >
-        {title}
+      <a href='#' onClick={onClick} className='flex flex-col leading-none no-underline'>
+        <span className='font-logo font-semibold dark:text-white text-size-xl md:text-size-display-xs'>
+          {title}
+        </span>
+        {description && (
+          <span className='font-medium text-[8px] md:text-[9.5px] tracking-wide whitespace-nowrap text-neutral-500 dark:text-neutral-400'>
+            {description}
+          </span>
+        )}
       </a>
     </div>
   );
