@@ -18,7 +18,7 @@ export default function FooterCard() {
       <div className='flex flex-col md:flex-row-reverse justify-between items-start gap-6 md:gap-[clamp(120px,calc(120px+(320-120)*((100vw-769px)/(1023-769))),320px)] lg:gap-[clamp(160px,calc(160px+(600-160)*((100vw-1024px)/(1440-1024))),600px)]'>
         {/* Logo */}
         <div className='flex flex-row items-center gap-3'>
-          <Logo title='Your Logo' />
+          <Logo title='Yusuf AR' />
         </div>
         {/* Headline */}
         <div

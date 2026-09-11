@@ -42,7 +42,7 @@ const Navbar = () => {
       <nav className='fixed w-full h-21 top-0 z-40 transition-all duration-300 backdrop-blur-2xl'>
         <div className='flex h-21 items-center justify-between px-4 py-6 md:px-10xl lg:px-11xl'>
           {/* Logo */}
-          <Logo title='Your Logo' />
+          <Logo title='Yusuf AR' />
 
           {/* Desktop Nav */}
           <div className='hidden md:flex items-center justify-between md:gap-3'>
@@ -127,7 +127,7 @@ const Navbar = () => {
           >
             {/* Mobile Menu Header */}
             <div className='flex items-center justify-between px-4 py-6 h-16 border-b border-neutral-800'>
-              <Logo title='Your Logo' />
+              <Logo title='Yusuf AR' />
               <button
                 onClick={() => setIsMenuOpen(false)}
                 aria-label='Close menu'

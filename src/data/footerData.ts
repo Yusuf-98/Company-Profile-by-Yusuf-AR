@@ -12,7 +12,7 @@ import tiktokLightIcon from '../assets/social-media/tiktok-light.png';
 export const footerData: FooterData = {
   headline: "LET'S DISCUSS YOUR IDEAS",
   logoSrc,
-  logoAlt: 'Your Logo',
+  logoAlt: 'Yusuf AR',
   navItems: [
     { label: 'About', href: '#about' },
     { label: 'Service', href: '#service' },
