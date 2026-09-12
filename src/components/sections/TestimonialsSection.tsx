@@ -87,7 +87,7 @@ function TestimonialsSection() {
   }, [isDragging]);
 
   return (
-    <section id='testimonials' className='flex flex-col py-20 gap-10 w-full'>
+    <section id='testimonials' className='flex flex-col py-20 gap-10 w-full max-w-360 mx-auto'>
       {/* Header */}
       <div className='w-full flex flex-col items-center gap-4'>
         <h1 className='font-bold text-size-display-sm md:text-size-display-lg lg:text-size-display-xl dark:text-neutral-25 text-neutral-950 text-center'>
