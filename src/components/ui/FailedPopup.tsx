@@ -1,6 +1,6 @@
 import type { FailedPopupProps } from '../../types';
 import Button from './Button';
-import failedImage from '../../assets/icons/failed-popup.png';
+import failedImage from '../../assets/icons/failed-popup.webp';
 
 export default function FailedPopup({
   data,

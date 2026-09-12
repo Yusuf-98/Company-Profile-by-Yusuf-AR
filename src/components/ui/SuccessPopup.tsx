@@ -1,6 +1,6 @@
 import type { SuccessPopupProps } from '../../types';
 import Button from './Button';
-import messageImage from '../../assets/icons/success-popup.png';
+import messageImage from '../../assets/icons/success-popup.webp';
 
 export default function SuccessPopup({
   data,
