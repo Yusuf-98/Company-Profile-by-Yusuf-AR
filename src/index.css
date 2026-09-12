@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @custom-variant hover (&:hover);
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @source "./**/*.{js,ts,jsx,tsx}";
 @source "../index.html";
@@ -127,10 +127,10 @@
   /* Gradient Border */
   --bg-gradient-border: linear-gradient(
     135deg,
-    #ff6c37_0%,
-    #ff6c37_25%,
-    #dedcdc_25%,
-    #dedcdc_100%
+    #ff6c37 0%,
+    #ff6c37 25%,
+    #dedcdc 25%,
+    #dedcdc 100%
   );
 
   --animate-marquee: marquee 35s linear infinite;
