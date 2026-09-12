@@ -4,6 +4,14 @@ A responsive, animated company-profile landing page built from a Figma design â€
 
 ðŸš€ **Live demo:** https://company-profile-by-yusuf-ar.vercel.app/
 
+![Hero section](docs/screenshots/hero.webp)
+
+## Screenshots
+
+| Animated stat counters | Testimonial carousel | FAQ |
+| --- | --- | --- |
+| ![Stats section](docs/screenshots/stats.webp) | ![Testimonials section](docs/screenshots/testimonials.webp) | ![FAQ section](docs/screenshots/faq.webp) |
+
 ## Features
 
 - Pixel-accurate implementation of a Figma design, responsive from mobile to desktop
