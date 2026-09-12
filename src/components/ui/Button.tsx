@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const baseStyles: Record<ButtonBg, string> = {
     orange:
-      'flex items-center justify-center p-2 gap-1 rounded-full shadow-inner bg-primary-200 text-white hover:text-neutral-800 hover:scale-102 focus:outline-2 active:shadow-inner active:bg-primary-300 transition-all duration-300 ease-in-out cursor-pointer',
+      'flex items-center justify-center p-2 gap-1 rounded-full shadow-inner bg-primary-200 text-white hover:text-neutral-900 hover:scale-102 focus:outline-2 active:shadow-inner active:bg-primary-300 transition-all duration-300 ease-in-out cursor-pointer',
     white:
       'flex items-center justify-center p-2 gap-1 rounded-full shadow-inner bg-base-white text-base-black hover:text-primary-200 hover:bg-neutral-100 hover:scale-102 focus:outline-2 active:shadow-inner active:bg-neutral-100 transition-all duration-300 ease-in-out cursor-pointer',
   };
