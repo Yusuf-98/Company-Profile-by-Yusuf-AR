@@ -1,7 +1,7 @@
 import type { PortfolioData } from '../types';
-import portfolio1 from '../assets/images/portfolio-1.png';
-import portfolio2 from '../assets/images/portfolio-2.png';
-import portfolio3 from '../assets/images/portfolio-3.png';
+import portfolio1 from '../assets/images/portfolio-1.webp';
+import portfolio2 from '../assets/images/portfolio-2.webp';
+import portfolio3 from '../assets/images/portfolio-3.webp';
 
 export const portfolioData: PortfolioData = {
   title: "From Vision to Launch! Projects We're Proud Of",

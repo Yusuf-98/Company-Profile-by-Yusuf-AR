@@ -1,8 +1,8 @@
 import { useTheme } from '../../context/useTheme';
 import Hero from '../ui/HeroTitle';
 import { hero } from '../../data/hero';
-import HeroImageDark from '../../assets/images/hero-image-dark.png';
-import HeroImageLight from '../../assets/images/hero-image-light.png';
+import HeroImageDark from '../../assets/images/hero-image-dark.webp';
+import HeroImageLight from '../../assets/images/hero-image-light.webp';
 
 function HeroSection() {
   const { theme } = useTheme();

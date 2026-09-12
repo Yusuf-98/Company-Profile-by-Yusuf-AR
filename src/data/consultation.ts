@@ -1,5 +1,5 @@
 import type { ConsultationProps } from '../types';
-import ConsultationImage from '../assets/images/consultation-image.png';
+import ConsultationImage from '../assets/images/consultation-image.webp';
 
 export const ConsultationData: ConsultationProps = {
   title: 'Let’s talk it through',

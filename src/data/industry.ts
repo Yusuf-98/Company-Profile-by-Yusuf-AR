@@ -1,7 +1,7 @@
 import type { IndustryData } from '../types';
-import FintechImage from '../assets/images/fintech-industry.png';
-import EcommerceImage from '../assets/images/e-commerce-industry.png';
-import HeathcareImage from '../assets/images/healthcare-industry.png';
+import FintechImage from '../assets/images/fintech-industry.webp';
+import EcommerceImage from '../assets/images/e-commerce-industry.webp';
+import HeathcareImage from '../assets/images/healthcare-industry.webp';
 
 export const industry: IndustryData = {
   title: 'Built for Your Industry',
