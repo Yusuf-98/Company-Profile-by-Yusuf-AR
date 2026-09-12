@@ -14,7 +14,7 @@ export default function FAQSection() {
   return (
     <section
       id='faq'
-      className='dar:bg-base-black min-h-screen px-4 py-20 md:px-10xl lg:px-11xl'
+      className='custom-container dark:bg-base-black min-h-screen py-20'
     >
       <div className='flex flex-col md:flex-row items-start md:justify-between mb-12'>
         <h2 className='w-full lg:w-82.75 dark:text-neutral-25 font-bold text-size-display-sm md:text-size-display-lg lg:text-size-display-xl text-left'>

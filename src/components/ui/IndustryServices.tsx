@@ -8,7 +8,7 @@ export default function IndustryServices() {
   const active = industry.industries.find((i) => i.id === activeId)!;
 
   return (
-    <div className='flex flex-col gap-6 md:gap-11 lg:gap-16 px-4 py-10 md:px-10xl lg:px-11xl lg:py-20'>
+    <div className='custom-container flex flex-col gap-6 md:gap-11 lg:gap-16 py-10 lg:py-20'>
       {/* Header */}
       <div className='flex flex-col gap-3.5'>
         <h2 className='dark:text-white font-bold text-size-display-md md:text-size-display-lg lg:text-size-display-xl'>

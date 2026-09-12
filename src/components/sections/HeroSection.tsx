@@ -10,7 +10,7 @@ function HeroSection() {
   return (
     <section
       id='hero'
-      className='w-full mt-21 px-4 md:px-10xl lg:px-11xl relative overflow-hidden'
+      className='custom-container w-full mt-21 relative overflow-hidden'
     >
       <div className='absolute inset-0 z-0 pointer-events-none'></div>
       <div className=' grid items-center md:grid-cols-[1.1fr_0.9fr] gap-10.75 '>

@@ -3,7 +3,7 @@ import StatCard from './StatCard';
 
 function StatsList() {
   return (
-    <div className='flex flex-col py-20 px-4 gap-6 md:px-10xl lg:px-11xl md:gap-12 lg:gap-16'>
+    <div className='custom-container flex flex-col py-20 gap-6 md:gap-12 lg:gap-16'>
       {/* Header */}
       <div className='flex flex-col gap-3.5'>
         <h1 className='font-bold text-size-display-sm md:text-size-display-md lg:text-size-display-xl text-center dark:text-neutral-25'>

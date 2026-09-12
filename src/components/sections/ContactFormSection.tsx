@@ -90,7 +90,7 @@ function ContactFormSection() {
   return (
     <section
       id='contact'
-      className='w-full flex items-center justify-center px-4 md:px-10xl lg:px-11xl pt-10 md:py-20'
+      className='custom-container w-full flex items-center justify-center pt-10 md:py-20'
     >
       <SuccessPopup
         data={SUCCESS_DATA}

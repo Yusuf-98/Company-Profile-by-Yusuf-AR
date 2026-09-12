@@ -87,7 +87,7 @@ export default function ProcessTimeline() {
 
   return (
     <div
-      className='w-full dark:bg-base-black min-h-screen py-10 md:py-20 px-4 md:px-10xl lg:px-11xl'
+      className='custom-container w-full dark:bg-base-black min-h-screen py-10 md:py-20'
     >
       {/* Header */}
       <div className='flex flex-col gap-3 md:gap-3.5 mb-16'>

@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <>
       <nav className='fixed w-full h-21 top-0 z-40 transition-all duration-300 backdrop-blur-2xl'>
-        <div className='flex h-21 items-center justify-between px-4 py-6 md:px-10xl lg:px-11xl'>
+        <div className='custom-container flex h-21 items-center justify-between py-6'>
           {/* Logo */}
           <Logo title='MMI' description='PT. Mahitala Mira Indonesia' />
 
