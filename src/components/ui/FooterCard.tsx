@@ -37,9 +37,8 @@ export default function FooterCard() {
         {/* Nav links */}
         <div className='flex flex-col md:flex-row items-start gap-2 md:gap-0'>
           {footerData.navItems.map((item) => (
-            <div className='flex items-center h-9 py-2 md:px-4 md:gap-1.5'>
+            <div key={item.label} className='flex items-center h-9 py-2 md:px-4 md:gap-1.5'>
               <a
-                key={item.label}
                 href={item.href}
                 className={`font-medium text-size-sm md:text-size-md
                 dark:text-neutral-25 

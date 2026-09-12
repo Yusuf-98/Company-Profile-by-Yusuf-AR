@@ -19,7 +19,7 @@ function PortfolioSection() {
       {/* Body */}
       <div className='flex flex-col md:flex-row gap-5'>
         {portfolioData.portfolioList.map((portfolio) => (
-          <PortfolioCard {...portfolio} />
+          <PortfolioCard key={portfolio.id} {...portfolio} />
         ))}
       </div>
     </section>

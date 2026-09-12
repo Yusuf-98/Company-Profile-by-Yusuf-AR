@@ -16,7 +16,7 @@ function StatsList() {
       {/* Body */}
       <div className='flex flex-wrap gap-4 md:gap-5 justify-center'>
         {statList.list.map((stat) => (
-          <div>
+          <div key={stat.id}>
             <StatCard {...stat} />
           </div>
         ))}
