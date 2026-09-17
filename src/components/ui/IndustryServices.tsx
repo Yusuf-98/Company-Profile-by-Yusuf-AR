@@ -1,11 +1,43 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { industry } from '../../data/industry';
 import IndustryCard from './IndustryCard';
 
 export default function IndustryServices() {
   const [activeId, setActiveId] = useState<number>(1);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const active = industry.industries.find((i) => i.id === activeId)!;
+  const activeIndex = industry.industries.findIndex((i) => i.id === activeId);
+
+  const focusTab = (index: number) => {
+    const count = industry.industries.length;
+    const nextIndex = (index + count) % count;
+    setActiveId(industry.industries[nextIndex].id);
+    tabRefs.current[nextIndex]?.focus();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    switch (e.key) {
+      case 'ArrowDown':
+      case 'ArrowRight':
+        e.preventDefault();
+        focusTab(activeIndex + 1);
+        break;
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        e.preventDefault();
+        focusTab(activeIndex - 1);
+        break;
+      case 'Home':
+        e.preventDefault();
+        focusTab(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        focusTab(industry.industries.length - 1);
+        break;
+    }
+  };
 
   return (
     <div className='custom-container flex flex-col gap-6 md:gap-11 lg:gap-16 py-10 lg:py-20'>
@@ -20,12 +52,26 @@ export default function IndustryServices() {
       </div>
       {/* Body */}
       <div className='flex flex-col gap-6 md:justify-between md:flex-row md:gap-16 md:items-start'>
-        <div className='flex flex-col gap-3 md:gap-4 lg:gap-6 lg:shrink-0 lg:pt-1'>
-          {industry.industries.map((indust) => {
+        <div
+          role='tablist'
+          aria-label={industry.title}
+          aria-orientation='vertical'
+          onKeyDown={handleKeyDown}
+          className='flex flex-col gap-3 md:gap-4 lg:gap-6 lg:shrink-0 lg:pt-1'
+        >
+          {industry.industries.map((indust, index) => {
             const isActive = indust.id === activeId;
             return (
               <button
                 key={indust.id}
+                ref={(el) => {
+                  tabRefs.current[index] = el;
+                }}
+                id={`industry-tab-${indust.id}`}
+                role='tab'
+                aria-selected={isActive}
+                aria-controls={`industry-panel-${indust.id}`}
+                tabIndex={isActive ? 0 : -1}
                 onClick={() => setActiveId(indust.id)}
                 className={[
                   'flex items-center gap-1.5 md:gap-2 text-size-md -tracking-1 md:text-size-lg lg:text-size-xl text-left transition-all duration-300 cursor-pointer',
@@ -48,7 +94,13 @@ export default function IndustryServices() {
           })}
         </div>
         {/* Label + Image */}
-        <div className='flex-1 max-w-210 min-w-0'>
+        <div
+          id={`industry-panel-${active.id}`}
+          role='tabpanel'
+          aria-labelledby={`industry-tab-${active.id}`}
+          tabIndex={0}
+          className='flex-1 max-w-210 min-w-0'
+        >
           <IndustryCard
             id={active.id}
             description={active.description}
