@@ -25,6 +25,7 @@ A responsive, animated company-profile landing page built from a Figma design â€
 - Vite
 - Tailwind CSS v4
 - ESLint
+- Vitest + React Testing Library
 
 ## Getting Started
 
@@ -36,6 +37,14 @@ npm run dev
 ```
 
 Open `http://localhost:5173` in your browser.
+
+## Testing
+
+```bash
+npm run test:run
+```
+
+Runs the Vitest suite once (component rendering, the theme toggle, and the FAQ accordion). Use `npm run test` for watch mode.
 
 ## Author
 
