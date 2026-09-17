@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://company-profile-by-yusuf-ar.vercel.app/sitemap.xml
