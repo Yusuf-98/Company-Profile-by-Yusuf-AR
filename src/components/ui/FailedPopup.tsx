@@ -1,23 +1,28 @@
 import type { FailedPopupProps } from '../../types';
 import Button from './Button';
 import failedImage from '../../assets/icons/failed-popup.webp';
+import { useModalA11y } from '../../hooks/useModalA11y';
 
 export default function FailedPopup({
   data,
   isOpen,
   onRetry,
 }: FailedPopupProps) {
+  const containerRef = useModalA11y(isOpen, onRetry);
+
   if (!isOpen) return null;
 
   return (
     <div>
       {/* ── Backdrop + Modal ── */}
       <div
+        ref={containerRef}
+        tabIndex={-1}
         role='alertdialog'
         aria-modal='true'
         aria-labelledby='failed-popup-title'
         onClick={onRetry}
-        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80'
+        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80 outline-none'
       >
         <div
           onClick={(e) => e.stopPropagation()}

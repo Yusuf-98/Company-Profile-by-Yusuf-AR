@@ -1,23 +1,28 @@
 import type { SuccessPopupProps } from '../../types';
 import Button from './Button';
 import messageImage from '../../assets/icons/success-popup.webp';
+import { useModalA11y } from '../../hooks/useModalA11y';
 
 export default function SuccessPopup({
   data,
   isOpen,
   onClose,
 }: SuccessPopupProps) {
+  const containerRef = useModalA11y(isOpen, onClose);
+
   if (!isOpen) return null;
 
   return (
     <div>
       {/* ── Backdrop + Modal ── */}
       <div
+        ref={containerRef}
+        tabIndex={-1}
         role='dialog'
         aria-modal='true'
         aria-labelledby='popup-title'
         onClick={onClose}
-        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80'
+        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80 outline-none'
       >
         <div
           onClick={(e) => e.stopPropagation()}

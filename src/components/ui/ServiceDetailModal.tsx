@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
 import type { ServiceDetailModalProps } from '../../types';
 import closeIcon from '../../assets/icons/x-close.png';
 import { useTheme } from '../../context/useTheme';
+import { useModalA11y } from '../../hooks/useModalA11y';
 
 export default function ServiceDetailModal({
   service,
@@ -9,15 +9,7 @@ export default function ServiceDetailModal({
 }: ServiceDetailModalProps) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
-
-  useEffect(() => {
-    if (!service) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [service, onClose]);
+  const containerRef = useModalA11y(!!service, onClose);
 
   if (!service) return null;
 
@@ -25,11 +17,13 @@ export default function ServiceDetailModal({
     <div>
       {/* ── Backdrop + Modal ── */}
       <div
+        ref={containerRef}
+        tabIndex={-1}
         role='dialog'
         aria-modal='true'
         aria-labelledby='service-detail-title'
         onClick={onClose}
-        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80'
+        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80 outline-none'
       >
         <div
           onClick={(e) => e.stopPropagation()}

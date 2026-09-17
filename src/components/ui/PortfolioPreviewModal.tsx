@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import type { PortfolioPreviewModalProps } from '../../types';
 import { useTheme } from '../../context/useTheme';
+import { useModalA11y } from '../../hooks/useModalA11y';
 import closeIcon from '../../assets/icons/x-close.png';
 
 export default function PortfolioPreviewModal({
@@ -9,15 +9,7 @@ export default function PortfolioPreviewModal({
 }: PortfolioPreviewModalProps) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
-
-  useEffect(() => {
-    if (!item) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [item, onClose]);
+  const containerRef = useModalA11y(!!item, onClose);
 
   if (!item) return null;
 
@@ -25,11 +17,13 @@ export default function PortfolioPreviewModal({
     <div>
       {/* ── Backdrop + Modal ── */}
       <div
+        ref={containerRef}
+        tabIndex={-1}
         role='dialog'
         aria-modal='true'
         aria-labelledby='portfolio-preview-title'
         onClick={onClose}
-        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80'
+        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80 outline-none'
       >
         <div
           onClick={(e) => e.stopPropagation()}
