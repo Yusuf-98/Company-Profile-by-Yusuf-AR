@@ -11,21 +11,18 @@ export default function FailedPopup({
 
   return (
     <div>
-      {/* ── Backdrop ── */}
-      <div
-        className='fixed inset-0 z-40 bg-base-black/80'
-        onClick={onRetry}
-        aria-hidden='true'
-      />
-
-      {/* ── Body Popup ── */}
+      {/* ── Backdrop + Modal ── */}
       <div
         role='alertdialog'
         aria-modal='true'
         aria-labelledby='failed-popup-title'
-        className='fixed inset-0 z-50 flex items-center justify-center px-4'
+        onClick={onRetry}
+        className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-base-black/80'
       >
-        <div className='flex flex-col items-start w-full max-w-129.5 border border-neutral-800 rounded-2xl overflow-hidden'>
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className='flex flex-col items-start w-full max-w-129.5 border border-neutral-800 rounded-2xl overflow-hidden'
+        >
           <div className='w-full flex items-center justify-center p-2 h-56.25 dark:bg-neutral-950 rounded-t-2xl'>
             <img
               src={failedImage}
