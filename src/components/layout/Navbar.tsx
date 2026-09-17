@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTheme } from '../../context/useTheme';
 import { navItems } from '../../data/navigation';
 import type { NavItem } from '../../types';
 import Button from '../ui/Button';
 import Logo from '../ui/Logo';
+import { useModalA11y } from '../../hooks/useModalA11y';
 import darkIcon from '../../assets/icons/dark-mode.png';
 import lightIcon from '../../assets/icons/light-mode.png';
 import closeIcon from '../../assets/icons/x-close.png';
@@ -14,6 +15,9 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+  const menuRef = useModalA11y(isMenuOpen, closeMenu);
+
   // Auto-close on desktop breakpoint
   useEffect(() => {
     const handleResize = () => {
@@ -22,14 +26,6 @@ const Navbar = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  // Lock body scroll when menu is open
-  useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMenuOpen]);
 
   const handleNavClick = (href: string): void => {
     setIsMenuOpen(false);
@@ -123,7 +119,12 @@ const Navbar = () => {
 
           {/* Panel menu */}
           <div
-            className={`fixed inset-x-0 top-0 z-50 flex flex-col md:hidden ${
+            ref={menuRef}
+            tabIndex={-1}
+            role='dialog'
+            aria-modal='true'
+            aria-label='Navigation menu'
+            className={`fixed inset-x-0 top-0 z-50 flex flex-col md:hidden outline-none ${
               isDark ? 'bg-base-black' : 'bg-base-white'
             }`}
           >
