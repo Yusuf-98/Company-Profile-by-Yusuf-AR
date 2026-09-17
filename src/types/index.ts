@@ -93,17 +93,39 @@ export interface StepCardProps {
 // Service Section Types
 // ==========================================
 
+export interface ServiceMetric {
+  label: string;
+  value: number; // 0-100, drives the bar chart width in the detail modal
+  display: string;
+}
+
+export interface ServiceDetail {
+  longDescription: string;
+  highlights: string[];
+  metrics: ServiceMetric[];
+}
+
 export interface ServiceCardProps {
   id: number;
   title: string;
   description: string;
   icon: string;
+  detail: ServiceDetail;
 }
 
 export interface ServiceCardData {
   title: string;
   description: string;
   list: ServiceCardProps[];
+}
+
+export interface ServiceCardComponentProps extends ServiceCardProps {
+  onClick: () => void;
+}
+
+export interface ServiceDetailModalProps {
+  service: ServiceCardProps | null;
+  onClose: () => void;
 }
 
 export interface IndustryProps {

@@ -1,10 +1,17 @@
-import type { ServiceCardProps } from '../../types';
+import type { ServiceCardComponentProps } from '../../types';
 
-const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
+const ServiceCard = ({
+  title,
+  description,
+  icon,
+  onClick,
+}: ServiceCardComponentProps) => {
   return (
-    <div
+    <button
+      type='button'
+      onClick={onClick}
       className={
-        'h-full rounded-2xl border border-neutral-900 flex flex-col pt-12 pb-5 px-5 gap-4 lg:pt-16 cursor-pointer transition-all duration-500 ease-in-out relative hover:border-primary-300/80 hover:scale-103'
+        'h-full w-full rounded-2xl border border-neutral-900 flex flex-col items-start text-left pt-12 pb-5 px-5 gap-4 lg:pt-16 cursor-pointer transition-all duration-500 ease-in-out relative hover:border-primary-300/80 hover:scale-103'
       }
     >
       <img
@@ -21,7 +28,7 @@ const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
           {description}
         </p>
       </div>
-    </div>
+    </button>
   );
 };
 

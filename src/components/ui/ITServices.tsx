@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import ServiceCard from './ServiceCard';
+import ServiceDetailModal from './ServiceDetailModal';
 import { services } from '../../data/services';
+import type { ServiceCardProps } from '../../types';
 
 function ITServices() {
+  const [selected, setSelected] = useState<ServiceCardProps | null>(null);
+
   return (
     <div className='custom-container flex flex-col py-10 gap-10 md:py-15 md:gap-14 lg:py-20 lg:gap-16'>
       {/* Header */}
@@ -17,10 +22,12 @@ function ITServices() {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-6 lg:gap-10 items-stretch'>
         {services.list.map((service) => (
           <div key={service.id}>
-            <ServiceCard {...service} />
+            <ServiceCard {...service} onClick={() => setSelected(service)} />
           </div>
         ))}
       </div>
+
+      <ServiceDetailModal service={selected} onClose={() => setSelected(null)} />
     </div>
   );
 }
