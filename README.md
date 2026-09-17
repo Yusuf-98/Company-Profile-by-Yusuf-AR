@@ -1,5 +1,7 @@
 # Company Profile
 
+[![CI](https://github.com/Yusuf-98/Company-Profile-by-Yusuf-AR/actions/workflows/ci.yml/badge.svg)](https://github.com/Yusuf-98/Company-Profile-by-Yusuf-AR/actions/workflows/ci.yml)
+
 A responsive, animated company-profile landing page built from a Figma design — Hero, About, Service, Projects, Testimonials, FAQ, and Footer sections, with a light/dark theme toggle.
 
 🚀 **Live demo:** https://company-profile-by-yusuf-ar.vercel.app/
