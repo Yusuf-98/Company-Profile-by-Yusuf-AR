@@ -58,7 +58,7 @@ const TestimonialCard = ({
         </div>
 
         <img
-          src={avatar || '/default-avatar.png'}
+          src={avatar || '/default-avatar.svg'}
           alt={name}
           className='w-15 h-15 rounded-full lg:w-19 lg:h-19 object-contain absolute -bottom-6 lg:-bottom-7.5 z-2'
         />
