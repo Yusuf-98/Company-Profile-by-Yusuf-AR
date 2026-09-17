@@ -138,6 +138,15 @@ export interface PortfolioData {
   portfolioList: PortfolioProps[];
 }
 
+export interface PortfolioCardProps extends PortfolioProps {
+  onClick: () => void;
+}
+
+export interface PortfolioPreviewModalProps {
+  item: PortfolioProps | null;
+  onClose: () => void;
+}
+
 // ==========================================
 // Testimonial Section Types
 // ==========================================

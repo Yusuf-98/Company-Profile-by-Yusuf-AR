@@ -1,8 +1,12 @@
-import type { PortfolioProps } from '../../types';
+import type { PortfolioCardProps } from '../../types';
 
-function PortfolioCard({ id, category, label, image, alt }: PortfolioProps) {
+function PortfolioCard({ id, category, label, image, alt, onClick }: PortfolioCardProps) {
   return (
-    <div className='group gap-3 w-full h-auto cursor-pointer'>
+    <button
+      type='button'
+      onClick={onClick}
+      className='group gap-3 w-full h-auto text-left cursor-pointer'
+    >
       <div className='overflow-hidden rounded-2xl'>
         <img
           key={id}
@@ -20,7 +24,7 @@ function PortfolioCard({ id, category, label, image, alt }: PortfolioProps) {
           {label}
         </p>
       </div>
-    </div>
+    </button>
   );
 }
 

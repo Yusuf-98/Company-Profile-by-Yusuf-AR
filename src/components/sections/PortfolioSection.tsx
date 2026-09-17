@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import PortfolioCard from '../ui/PortfolioCard';
+import PortfolioPreviewModal from '../ui/PortfolioPreviewModal';
+import type { PortfolioProps } from '../../types';
 
 function PortfolioSection() {
+  const [selected, setSelected] = useState<PortfolioProps | null>(null);
+
   return (
     <section
       id='portfolio'
@@ -19,9 +24,15 @@ function PortfolioSection() {
       {/* Body */}
       <div className='flex flex-col md:flex-row gap-5'>
         {portfolioData.portfolioList.map((portfolio) => (
-          <PortfolioCard key={portfolio.id} {...portfolio} />
+          <PortfolioCard
+            key={portfolio.id}
+            {...portfolio}
+            onClick={() => setSelected(portfolio)}
+          />
         ))}
       </div>
+
+      <PortfolioPreviewModal item={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }
