@@ -23,6 +23,7 @@ export default function ServiceCheckbox({
         alt={checked ? 'checked' : 'unchecked'}
         width={20}
         height={20}
+        loading='lazy'
         className='shrink-0'
       />
       <span className='font-medium text-size-sm md:text-size-md dark:text-neutral-25'>

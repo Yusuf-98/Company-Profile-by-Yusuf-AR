@@ -28,6 +28,7 @@ const TestimonialCard = ({
         <img
           src={QuoteIcon}
           alt='Quote Icon'
+          loading='lazy'
           className='w-16 h-16 lg:w-20 lg:h-20 object-contain absolute -top-8.5 left-12.5 lg:-top-11 z-2'
         />
 
@@ -39,6 +40,7 @@ const TestimonialCard = ({
                   key={index}
                   src={StarIcon}
                   alt='Rating Star'
+                  loading='lazy'
                   className='w-6 h-6'
                 />
               ))}
@@ -60,6 +62,7 @@ const TestimonialCard = ({
         <img
           src={avatar || '/default-avatar.svg'}
           alt={name}
+          loading='lazy'
           className='w-15 h-15 rounded-full lg:w-19 lg:h-19 object-contain absolute -bottom-6 lg:-bottom-7.5 z-2'
         />
       </div>

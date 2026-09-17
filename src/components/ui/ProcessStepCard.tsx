@@ -53,6 +53,7 @@ export function StepCard({
             <img
               src={open ? UpArrow : DownArrow}
               alt={open ? 'collapse' : 'expand'}
+              loading='lazy'
               className='w-6 h-6 shrink-0 opacity-60'
             />
           </div>
@@ -88,6 +89,7 @@ export function StepCard({
           <img
             src={open ? UpArrow : DownArrow}
             alt={open ? 'collapse' : 'expand'}
+            loading='lazy'
             className='w-6 h-6 shrink-0 opacity-60'
           />
         </div>

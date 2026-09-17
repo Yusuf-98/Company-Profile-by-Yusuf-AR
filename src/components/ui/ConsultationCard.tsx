@@ -18,6 +18,7 @@ function ConsultationCard() {
         <img
           src={ConsultationData.image}
           alt={ConsultationData.alt}
+          loading='lazy'
           className='w-full object-cover rounded-2xl'
         />
       </div>

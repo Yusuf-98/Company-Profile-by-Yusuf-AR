@@ -29,6 +29,7 @@ function FAQRow({ item, isOpen, onToggle }: FAQRowProps) {
           <img
             src={isOpen ? minusIcon : plusIcon}
             alt={isOpen ? 'Collapse' : 'Expand'}
+            loading='lazy'
             className={`object-contain ${isDark ? 'w-6 h-6' : 'w-4 h-4'}`}
           />
         </span>

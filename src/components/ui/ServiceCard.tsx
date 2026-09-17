@@ -10,6 +10,7 @@ const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
       <img
         src={icon}
         alt={title}
+        loading='lazy'
         className='w-16 h-16 lg:w-20 lg:h-20 object-contain absolute -top-5 lg:-top-6.5'
       />
       <div className='flex flex-col gap-1'>

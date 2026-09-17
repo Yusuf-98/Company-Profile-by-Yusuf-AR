@@ -138,6 +138,7 @@ function TestimonialsSection() {
             src={ChevronRight}
             alt=''
             aria-hidden='true'
+            loading='lazy'
             className={`w-4 h-4 md:w-5 md:h-5 rotate-180 ${isDark ? '' : 'invert'}`}
           />
         </button>
@@ -154,6 +155,7 @@ function TestimonialsSection() {
             src={ChevronRight}
             alt=''
             aria-hidden='true'
+            loading='lazy'
             className={`w-4 h-4 md:w-5 md:h-5 ${isDark ? '' : 'invert'}`}
           />
         </button>

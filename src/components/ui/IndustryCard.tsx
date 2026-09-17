@@ -15,6 +15,7 @@ export default function IndustryCard({
         <img
           src={image}
           alt={imageAlt}
+          loading='lazy'
           className='rounded-xl w-full h-50 md:h-auto object-cover'
         />
       </div>

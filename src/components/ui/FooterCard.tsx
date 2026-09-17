@@ -68,6 +68,7 @@ export default function FooterCard() {
               <img
                 src={isDark ? social.icon.dark : social.icon.light}
                 alt={social.name}
+                loading='lazy'
                 className='object-contain'
               />
             </a>

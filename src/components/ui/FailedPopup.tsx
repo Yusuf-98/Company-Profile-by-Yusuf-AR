@@ -30,6 +30,7 @@ export default function FailedPopup({
             <img
               src={failedImage}
               alt='Message failed illustration'
+              loading='lazy'
               className='h-full w-auto object-contain'
             />
           </div>

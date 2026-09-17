@@ -8,6 +8,7 @@ function PortfolioCard({ id, category, label, image, alt }: PortfolioProps) {
           key={id}
           src={image}
           alt={alt}
+          loading='lazy'
           className='object-cover transition-transform duration-500 ease-in-out group-hover:scale-105'
         />
       </div>

@@ -30,6 +30,7 @@ export default function SuccessPopup({
             <img
               src={messageImage}
               alt='Message received illustration'
+              loading='lazy'
               className='h-full w-auto object-contain'
             />
           </div>
