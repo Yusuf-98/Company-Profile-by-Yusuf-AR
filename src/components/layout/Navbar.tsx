@@ -69,11 +69,13 @@ const Navbar = () => {
           <div className='flex items-center gap-4'>
             <button
               onClick={toggleTheme}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
               className='p-2 rounded-full cursor-pointer'
             >
               <img
                 src={isDark ? lightIcon : darkIcon}
-                alt='Toggle Theme Icon'
+                alt=''
+                aria-hidden='true'
                 className={`inline-flex min-w-5 h-5 ${isDark ? 'invert' : ''}`}
               />
             </button>
