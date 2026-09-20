@@ -26,9 +26,9 @@ describe('PortfolioSection', () => {
     const [first] = portfolioData.portfolioList;
     await user.click(screen.getByRole('button', { name: new RegExp(first.label) }));
 
-    const dialog = screen.getByRole('dialog');
+    // The modal is lazy-loaded, so wait for it to appear rather than asserting synchronously.
+    const dialog = await screen.findByRole('dialog');
     const modal = within(dialog);
-    expect(dialog).toBeInTheDocument();
     expect(modal.getByRole('heading', { name: first.label })).toBeInTheDocument();
     expect(modal.getByText(first.category)).toBeInTheDocument();
     expect(modal.getByAltText(first.alt)).toHaveAttribute('src', first.image);
@@ -40,7 +40,7 @@ describe('PortfolioSection', () => {
 
     const [first] = portfolioData.portfolioList;
     await user.click(screen.getByRole('button', { name: new RegExp(first.label) }));
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    await screen.findByRole('dialog');
 
     await user.click(screen.getByRole('button', { name: 'Close preview' }));
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
@@ -53,7 +53,7 @@ describe('PortfolioSection', () => {
     const [first] = portfolioData.portfolioList;
     await user.click(screen.getByRole('button', { name: new RegExp(first.label) }));
 
-    const dialog = screen.getByRole('dialog');
+    const dialog = await screen.findByRole('dialog');
     await user.click(screen.getByRole('heading', { name: first.label }));
     expect(screen.getByRole('dialog')).toBeInTheDocument();
 
@@ -67,7 +67,7 @@ describe('PortfolioSection', () => {
 
     const [first] = portfolioData.portfolioList;
     await user.click(screen.getByRole('button', { name: new RegExp(first.label) }));
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
 
     await user.keyboard('{Escape}');
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();

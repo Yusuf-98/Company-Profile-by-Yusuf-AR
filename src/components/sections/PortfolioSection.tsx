@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import PortfolioCard from '../ui/PortfolioCard';
-import PortfolioPreviewModal from '../ui/PortfolioPreviewModal';
 import type { PortfolioProps } from '../../types';
+
+const PortfolioPreviewModal = lazy(() => import('../ui/PortfolioPreviewModal'));
 
 function PortfolioSection() {
   const [selected, setSelected] = useState<PortfolioProps | null>(null);
@@ -32,7 +33,9 @@ function PortfolioSection() {
         ))}
       </div>
 
-      <PortfolioPreviewModal item={selected} onClose={() => setSelected(null)} />
+      <Suspense fallback={null}>
+        <PortfolioPreviewModal item={selected} onClose={() => setSelected(null)} />
+      </Suspense>
     </section>
   );
 }

@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import ServiceCard from './ServiceCard';
-import ServiceDetailModal from './ServiceDetailModal';
 import { services } from '../../data/services';
 import type { ServiceCardProps } from '../../types';
+
+const ServiceDetailModal = lazy(() => import('./ServiceDetailModal'));
 
 function ITServices() {
   const [selected, setSelected] = useState<ServiceCardProps | null>(null);
@@ -27,7 +28,9 @@ function ITServices() {
         ))}
       </div>
 
-      <ServiceDetailModal service={selected} onClose={() => setSelected(null)} />
+      <Suspense fallback={null}>
+        <ServiceDetailModal service={selected} onClose={() => setSelected(null)} />
+      </Suspense>
     </div>
   );
 }

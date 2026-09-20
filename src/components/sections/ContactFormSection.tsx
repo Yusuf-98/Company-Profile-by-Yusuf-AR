@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import type { ContactFormState, ContactFormErrors } from '../../types';
 import FormCard from '../ui/FormCard';
 import { contactFormData } from '../../data/contactFormData';
-import SuccessPopup from '../ui/SuccessPopup';
-import FailedPopup from '../ui/FailedPopup';
 import { SUCCESS_DATA } from '../../data/successPopup';
 import { FAILED_DATA } from '../../data/failedPopup';
 import Button from '../ui/Button';
 import CheckboxServices from '../ui/CheckboxServices';
+
+const SuccessPopup = lazy(() => import('../ui/SuccessPopup'));
+const FailedPopup = lazy(() => import('../ui/FailedPopup'));
 
 function ContactFormSection() {
   const [form, setForm] = useState<ContactFormState>({
@@ -92,16 +93,18 @@ function ContactFormSection() {
       id='contact'
       className='custom-container w-full flex items-center justify-center pt-10 md:py-20'
     >
-      <SuccessPopup
-        data={SUCCESS_DATA}
-        isOpen={showPopup}
-        onClose={handleClose}
-      />
-      <FailedPopup
-        data={FAILED_DATA}
-        isOpen={showFailed}
-        onRetry={handleRetry}
-      />
+      <Suspense fallback={null}>
+        <SuccessPopup
+          data={SUCCESS_DATA}
+          isOpen={showPopup}
+          onClose={handleClose}
+        />
+        <FailedPopup
+          data={FAILED_DATA}
+          isOpen={showFailed}
+          onRetry={handleRetry}
+        />
+      </Suspense>
 
       <div className='flex flex-col items-center justify-center gap-12 w-full max-w-180'>
         <div className='flex flex-col items-start gap-4 w-full'>
