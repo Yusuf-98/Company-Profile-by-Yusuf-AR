@@ -102,6 +102,7 @@ export default function IndustryServices() {
           className='flex-1 max-w-210 min-w-0'
         >
           <IndustryCard
+            key={active.id}
             id={active.id}
             description={active.description}
             image={active.image}
