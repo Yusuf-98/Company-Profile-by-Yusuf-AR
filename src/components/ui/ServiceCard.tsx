@@ -21,9 +21,9 @@ const ServiceCard = ({
         className='w-16 h-16 lg:w-20 lg:h-20 object-contain absolute -top-5 lg:-top-6.5'
       />
       <div className='flex flex-col gap-1'>
-        <h3 className='dark:text-neutral-25 font-bold text-size-md lg:text-size-xl'>
+        <h2 className='dark:text-neutral-25 font-bold text-size-md lg:text-size-xl'>
           {title}
-        </h3>
+        </h2>
         <p className='text-neutral-400 font-medium text-size-sm lg:text-size-md'>
           {description}
         </p>
