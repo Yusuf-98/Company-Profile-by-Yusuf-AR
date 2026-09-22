@@ -25,6 +25,10 @@ A responsive, animated company-profile landing page built from a Figma design â€
 
 ## Screenshots
 
+| Dark theme | Light theme |
+| --- | --- |
+| ![Hero section in dark theme](docs/screenshots/theme-dark.webp) | ![Hero section in light theme](docs/screenshots/theme-light.webp) |
+
 | Animated stat counters | Testimonial carousel | FAQ |
 | --- | --- | --- |
 | ![Stats section](docs/screenshots/stats.webp) | ![Testimonials section](docs/screenshots/testimonials.webp) | ![FAQ section](docs/screenshots/faq.webp) |
