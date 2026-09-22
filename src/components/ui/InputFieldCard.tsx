@@ -5,12 +5,14 @@ export default function InputField({
   type = 'text',
   placeholder,
   value,
+  fieldKey,
   touched,
   error,
   rows = 4,
   onChange,
   onBlur,
 }: InputFieldProps) {
+  const fieldId = `contact-${fieldKey}`;
   const baseClass = `
     w-full rounded-lg px-4 py-2 outline-none
     dark:bg-base-black border
@@ -18,7 +20,7 @@ export default function InputField({
     placeholder:text-neutral-500
     transition-colors
     ${
-      touched && error && value.trim().length > 0
+      touched && error
         ? 'border-red-500 focus:border-red-500'
         : 'border-neutral-800 focus:border-primary-200'
     }
@@ -26,12 +28,13 @@ export default function InputField({
 
   return (
     <div className='flex flex-col items-start gap-1.5 w-full'>
-      <label className='font-bold text-size-sm dark:text-neutral-25'>
+      <label htmlFor={fieldId} className='font-bold text-size-sm dark:text-neutral-25'>
         {label}
       </label>
 
       {type === 'textarea' ? (
         <textarea
+          id={fieldId}
           placeholder={placeholder}
           value={value}
           rows={rows}
@@ -41,6 +44,7 @@ export default function InputField({
         />
       ) : (
         <input
+          id={fieldId}
           type={type}
           placeholder={placeholder}
           value={value}
@@ -51,7 +55,7 @@ export default function InputField({
       )}
 
       {/* Error state */}
-      {touched && error && value.trim().length > 0 && (
+      {touched && error && (
         <span className='text-red-500 text-size-xs font-medium'>{error}</span>
       )}
     </div>
