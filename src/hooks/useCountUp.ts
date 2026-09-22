@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
-// Count from 1 to the numeric part of `value` once the ref enters the viewport
 export function useCountUp<T extends HTMLElement>(value: string, duration = 1500) {
+  // --- Parse value ---
   const match = value.match(/^(\d+(?:\.\d+)?)(.*)$/);
   const target = match ? parseFloat(match[1]) : null;
   const suffix = match ? match[2] : '';
   const decimals = match && match[1].includes('.') ? match[1].split('.')[1].length : 0;
 
+  // --- Initial display ---
   const [display, setDisplay] = useState(() => {
     if (target === null || target <= 1) return value;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return value;
@@ -20,6 +21,7 @@ export function useCountUp<T extends HTMLElement>(value: string, duration = 1500
     if (!el || target === null || target <= 1) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    // --- Animate on intersect ---
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || hasAnimated.current) return;

@@ -24,6 +24,7 @@ function ContactFormSection() {
 
   const EMAIL_VAL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  // --- Validation ---
   function validate(f: ContactFormState): ContactFormErrors {
     const errs: ContactFormErrors = {};
     if (!f.name.trim()) errs.name = 'Name is required.';
@@ -38,6 +39,7 @@ function ContactFormSection() {
     return errs;
   }
 
+  // --- Handlers ---
   const handleChange = (field: keyof ContactFormState) => (value: string) => {
     const updated = { ...form, [field]: value };
     setForm(updated);
@@ -93,6 +95,7 @@ function ContactFormSection() {
       id='contact'
       className='custom-container w-full flex items-center justify-center pt-10 md:py-20'
     >
+      {/* Popups */}
       <Suspense fallback={null}>
         <SuccessPopup
           data={SUCCESS_DATA}
@@ -107,6 +110,7 @@ function ContactFormSection() {
       </Suspense>
 
       <div className='flex flex-col items-center justify-center gap-12 w-full max-w-180'>
+        {/* Header */}
         <div className='flex flex-col items-start gap-4 w-full'>
           <h2 className='w-full text-center font-bold text-size-display-sm md:text-size-display-md lg:text-size-display-xl dark:text-neutral-25'>
             {contactFormData.title}
@@ -117,6 +121,7 @@ function ContactFormSection() {
         </div>
 
         <div className='flex flex-col items-start gap-10 w-full'>
+          {/* Form fields */}
           <div className='flex flex-col items-start gap-5 w-full'>
             <FormCard
               data={contactFormData}
@@ -137,6 +142,7 @@ function ContactFormSection() {
             />
           </div>
 
+          {/* Submit */}
           <Button
             background='orange'
             size='md'

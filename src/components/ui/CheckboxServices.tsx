@@ -19,6 +19,7 @@ export default function CheckboxServices({
       </label>
 
       <div className='flex flex-col md:flex-row gap-3.5 md:gap-3.5'>
+        {/* Column 1 */}
         <div className='flex flex-col gap-4 flex-1 w-76'>
           {col1.map((service) => (
             <ServiceCheckbox
@@ -30,6 +31,7 @@ export default function CheckboxServices({
             />
           ))}
         </div>
+        {/* Column 2 */}
         <div className='flex flex-col gap-4 flex-1'>
           {col2.map((service) => (
             <ServiceCheckbox
@@ -43,6 +45,7 @@ export default function CheckboxServices({
         </div>
       </div>
 
+      {/* Error state */}
       {touched && error && (
         <span className='text-red-500 text-size-xs font-medium'>{error}</span>
       )}

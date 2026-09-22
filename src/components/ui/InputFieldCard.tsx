@@ -50,6 +50,7 @@ export default function InputField({
         />
       )}
 
+      {/* Error state */}
       {touched && error && value.trim().length > 0 && (
         <span className='text-red-500 text-size-xs font-medium'>{error}</span>
       )}

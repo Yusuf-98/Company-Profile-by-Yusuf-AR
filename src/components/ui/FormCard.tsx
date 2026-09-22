@@ -24,6 +24,7 @@ export default function FormCard({
 }: Props) {
   return (
     <div className='flex flex-col items-start gap-5 w-full'>
+      {/* Name */}
       <InputField
         label='Name'
         type='text'
@@ -35,6 +36,7 @@ export default function FormCard({
         onChange={onChange('name')}
         onBlur={() => onBlur('name')}
       />
+      {/* Email */}
       <InputField
         label='Email'
         type='email'
@@ -46,6 +48,7 @@ export default function FormCard({
         onChange={onChange('email')}
         onBlur={() => onBlur('email')}
       />
+      {/* Message */}
       <InputField
         label='Message'
         type='textarea'

@@ -3,8 +3,6 @@ import { useEffect, useRef } from 'react';
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
-// Locks background scroll, traps Tab focus inside the modal, closes on
-// Escape, and restores focus to whatever triggered the modal on close.
 export function useModalA11y(isOpen: boolean, onClose: () => void) {
   const containerRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
@@ -12,9 +10,11 @@ export function useModalA11y(isOpen: boolean, onClose: () => void) {
   useEffect(() => {
     if (!isOpen) return;
 
+    // --- Scroll lock + focus save ---
     previouslyFocused.current = document.activeElement as HTMLElement | null;
     document.body.style.overflow = 'hidden';
 
+    // --- Focusable elements ---
     const container = containerRef.current;
     const getFocusable = () =>
       container
@@ -23,11 +23,14 @@ export function useModalA11y(isOpen: boolean, onClose: () => void) {
 
     (getFocusable()[0] ?? container)?.focus();
 
+    // --- Keydown handler ---
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Escape
       if (e.key === 'Escape') {
         onClose();
         return;
       }
+      // Tab trap
       if (e.key !== 'Tab') return;
 
       const focusable = getFocusable();
@@ -47,6 +50,7 @@ export function useModalA11y(isOpen: boolean, onClose: () => void) {
 
     window.addEventListener('keydown', handleKeyDown);
 
+    // --- Cleanup ---
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
