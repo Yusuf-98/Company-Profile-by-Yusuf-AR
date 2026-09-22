@@ -43,13 +43,14 @@ function ContactFormSection() {
   const handleChange = (field: keyof ContactFormState) => (value: string) => {
     const updated = { ...form, [field]: value };
     setForm(updated);
+    const errorKey = field as keyof ContactFormErrors;
     if (touched[field])
-      setErrors((prev) => ({ ...prev, ...validate(updated) }));
+      setErrors((prev) => ({ ...prev, [errorKey]: validate(updated)[errorKey] }));
   };
 
   const handleBlur = (field: keyof ContactFormErrors) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
-    setErrors((prev) => ({ ...prev, ...validate(form) }));
+    setErrors((prev) => ({ ...prev, [field]: validate(form)[field] }));
   };
 
   const toggleService = (id: string) => {
