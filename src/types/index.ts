@@ -1,8 +1,6 @@
 import React from 'react';
 
-// ==========================================
-// UI Component Types
-// ==========================================
+// --- UI Component Types ---
 
 export type ButtonSize = 'sm' | 'md';
 export type ButtonBg = 'orange' | 'white';
@@ -17,9 +15,7 @@ export interface ButtonProps {
   type: 'button' | 'submit' | 'reset';
 }
 
-// ==========================================
-// Home Types
-// ==========================================
+// --- Home Types ---
 
 export interface NavItem {
   label: string;
@@ -41,9 +37,7 @@ export interface HeroProps {
   image?: string;
 }
 
-// ==========================================
-// About Section Types
-// ==========================================
+// --- About Section Types ---
 
 export interface PartnerItem {
   id: number;
@@ -89,13 +83,11 @@ export interface StepCardProps {
   onToggle?: () => void;
 }
 
-// ==========================================
-// Service Section Types
-// ==========================================
+// --- Service Section Types ---
 
 export interface ServiceMetric {
   label: string;
-  value: number; // 0-100, drives the bar chart width in the detail modal
+  value: number;
   display: string;
 }
 
@@ -142,9 +134,7 @@ export interface IndustryData {
   industries: IndustryProps[];
 }
 
-// ==========================================
-// Portfolio Section Types
-// ==========================================
+// --- Portfolio Section Types ---
 
 export interface PortfolioProps {
   id: number;
@@ -169,9 +159,7 @@ export interface PortfolioPreviewModalProps {
   onClose: () => void;
 }
 
-// ==========================================
-// Testimonial Section Types
-// ==========================================
+// --- Testimonial Section Types ---
 
 export interface Testimonial {
   id: number;
@@ -189,9 +177,7 @@ export interface TestimonialData {
   list: Testimonial[];
 }
 
-// ==========================================
-// FAQ Section Types
-// ==========================================
+// --- FAQ Section Types ---
 
 export interface ConsultationProps {
   title: string;
@@ -217,9 +203,7 @@ export interface FAQHeader {
   subtitle: string;
 }
 
-// ==========================================
-// Contact Section Types
-// ==========================================
+// --- Contact Section Types ---
 
 export interface ServiceOption {
   id: string;
@@ -282,9 +266,7 @@ export interface CheckboxServicesProps {
   onToggle: (id: string) => void;
 }
 
-// ==========================================
-// Popup Types
-// ==========================================
+// --- Popup Types ---
 
 export interface SuccessPopupProps {
   data: SuccessPopup;
@@ -310,9 +292,7 @@ export interface FailedPopup {
   buttonLabel: string;
 }
 
-// ==========================================
-// Footer Types
-// ==========================================
+// --- Footer Types ---
 
 export interface FooterNavItem {
   label: string;
@@ -336,9 +316,7 @@ export interface FooterData {
   socialItems: FooterSocialItem[];
 }
 
-// ==========================================
-// Theme Types
-// ==========================================
+// --- Theme Types ---
 
 export type Theme = 'light' | 'dark';
 
@@ -347,9 +325,7 @@ export interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-// ==========================================
-// Pagination Types
-// ==========================================
+// --- Pagination Types ---
 
 export interface PaginationProps {
   total: number;
