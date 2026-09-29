@@ -77,7 +77,7 @@ export default function IndustryServices() {
                   'flex items-center gap-1.5 md:gap-2 text-size-md -tracking-1 md:text-size-lg lg:text-size-xl text-left transition-all duration-300 cursor-pointer',
                   isActive
                     ? 'dark:text-neutral-25 font-semibold'
-                    : 'text-neutral-600 font-normal hover:text-neutral-400',
+                    : 'text-neutral-500 font-normal hover:text-neutral-400',
                 ].join(' ')}
               >
                 <span
