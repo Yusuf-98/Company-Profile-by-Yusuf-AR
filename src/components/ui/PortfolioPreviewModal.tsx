@@ -1,7 +1,7 @@
 import type { PortfolioPreviewModalProps } from '../../types';
 import { useTheme } from '../../context/useTheme';
 import { useModalA11y } from '../../hooks/useModalA11y';
-import closeIcon from '../../assets/icons/x-close.png';
+import closeIcon from '../../assets/icons/x-close.svg';
 
 export default function PortfolioPreviewModal({
   item,

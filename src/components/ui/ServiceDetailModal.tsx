@@ -1,5 +1,5 @@
 import type { ServiceDetailModalProps } from '../../types';
-import closeIcon from '../../assets/icons/x-close.png';
+import closeIcon from '../../assets/icons/x-close.svg';
 import { useTheme } from '../../context/useTheme';
 import { useModalA11y } from '../../hooks/useModalA11y';
 

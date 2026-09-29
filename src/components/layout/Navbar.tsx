@@ -7,8 +7,8 @@ import Logo from '../ui/Logo';
 import { useModalA11y } from '../../hooks/useModalA11y';
 import darkIcon from '../../assets/icons/dark-mode.png';
 import lightIcon from '../../assets/icons/light-mode.png';
-import closeIcon from '../../assets/icons/x-close.png';
-import hamburgerIcon from '../../assets/icons/hamburger-icon.png';
+import closeIcon from '../../assets/icons/x-close.svg';
+import hamburgerIcon from '../../assets/icons/hamburger-icon.svg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
