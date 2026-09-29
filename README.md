@@ -8,9 +8,11 @@ A responsive, animated company-profile landing page built from a Figma design �
 
 ![Hero section](docs/screenshots/hero.webp)
 
+[![Lighthouse](https://img.shields.io/badge/Lighthouse-98_mobile_%C2%B7_100_desktop-brightgreen?logo=lighthouse&logoColor=white)](#performance)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-blue?logo=typescript)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Features
@@ -77,9 +79,50 @@ GitHub Actions runs lint, type-check, tests and the production build on every pu
 
 ## Performance
 
-- Below-the-fold images use `loading="lazy"`; the hero image and nav logo stay eager since they're always in the initial viewport
-- The portfolio preview, service detail, and contact form success/failure modals are code-split with `React.lazy` + `Suspense`, so their JS only loads when a user actually opens one
-- The industry switcher's image has a fixed `aspect-ratio` and fades in on `onLoad`, so switching tabs never shifts the layout while the next image loads
+Lighthouse results for the [live site](https://company-profile-by-yusuf-ar.vercel.app/): the median of 10 mobile and 6 desktop runs on 29 September 2026 (Lighthouse 13.5.0).
+
+| | 📱 Mobile | 🖥️ Desktop |
+| --- | :---: | :---: |
+| **Performance** | **98** | **100** |
+| **Accessibility** | **97** | **97** |
+| **Best practices** | **100** | **100** |
+| **SEO** | **100** | **100** |
+
+Mobile performance ranged from 96 to 98 across the 10 runs; desktop scored 100 in all 6. Accessibility holds at 97 on both — two buttons keep their brand orange background over white text rather than a higher-contrast color, a deliberate trade-off to preserve the site's visual identity.
+
+### Core metrics
+
+| Metric | 📱 Mobile | 🖥️ Desktop | Good if |
+| --- | :---: | :---: | :---: |
+| **First Contentful Paint** (first pixels) | 🟢 1.7 s | 🟢 0.4 s | ≤ 1.8 s |
+| **Largest Contentful Paint** (main content visible) | 🟢 2.1 s | 🟢 0.5 s | ≤ 2.5 s |
+| **Total Blocking Time** (page unresponsive) | 🟢 24 ms | 🟢 0 ms | ≤ 200 ms |
+| **Cumulative Layout Shift** (content jumping) | 🟢 0 | 🟢 0 | ≤ 0.1 |
+| **Speed Index** (how fast it fills in) | 🟢 1.7 s | 🟢 0.6 s | ≤ 3.4 s |
+| **Page weight** (compressed) | 241 KiB | 263 KiB | |
+
+🟢 within Google's "good" range · figures are medians
+
+### What "mobile" means in this test
+
+The mobile test does not simply run on a fast laptop. Lighthouse slows the machine down to imitate a mid-range phone on a weak connection:
+
+- **Device**: a Moto G Power (2022), 412 × 823 px screen at 1.75× pixel density.
+- **Network**: simulated slow 4G, about **1.6 Mbps** download with **150 ms** of round-trip latency.
+- **CPU**: slowed down **4×**, so JavaScript takes four times as long to run as it does on the laptop.
+
+The desktop test uses a 1350 × 940 px screen, 10 Mbps, 40 ms latency and no CPU slowdown.
+
+Run it yourself with [PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fcompany-profile-by-yusuf-ar.vercel.app%2F&form_factor=mobile) or `npx lighthouse https://company-profile-by-yusuf-ar.vercel.app/ --form-factor=mobile`. A single run can move by a few points with network conditions, which is why the figures above are medians.
+
+### How it stays fast
+
+- **Fonts** are self-hosted and subsetted to the weights actually used (Outfit 600, Quicksand 400–700) with `font-display: swap` ([src/index.css](src/index.css)), instead of linking Google's CSS — this removes a whole external origin (DNS + TLS + request) from the critical path.
+- **Hero image** is preloaded from the top of `<head>` with `fetchPriority="high"`, and served responsively: a 1040px-wide variant for mobile viewports, the full 1488px one for desktop, via matching `srcset`/`sizes` on the `<img>` and `imagesrcset`/`imagesizes` on the preload link itself ([index.html](index.html), [HeroSection.tsx](src/components/sections/HeroSection.tsx)).
+- Below-the-fold images use `loading="lazy"`; the hero image and nav logo stay eager since they're always in the initial viewport.
+- The portfolio preview, service detail, and contact form success/failure modals are code-split with `React.lazy` + `Suspense`, so their JS only loads when a user actually opens one.
+- Icons (menu, close, theme toggle) are hand-vectorized SVGs rather than raster PNGs, cutting their weight by roughly 5–10×.
+- The industry switcher's image has a fixed `aspect-ratio` and fades in on `onLoad`, so switching tabs never shifts the layout while the next image loads.
 
 ## Project structure
 
