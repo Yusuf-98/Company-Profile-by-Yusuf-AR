@@ -26,6 +26,7 @@ function HeroSection() {
           <img
             src={heroImage}
             alt='3D smartphone with floating glassmorphism UI layers.'
+            fetchPriority='high'
             className='w-130 md:w-[clamp(440px,calc(62.5vw-40px),600px)] lg:w-[clamp(600px,calc(35.34vw+238.12px),747px)] object-cover md:absolute top-[clamp(262px,calc(405.37px-18.67vw),332px)] md:-top-[clamp(52px,calc(7.81vw-8px),72px)] lg:-top-[clamp(72px,calc(2.88vw+42.48px),84px)] md:right-0'
           />
         </div>
